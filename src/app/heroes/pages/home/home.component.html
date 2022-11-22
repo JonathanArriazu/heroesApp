@@ -1,42 +1,49 @@
-<mat-sidenav-container fullscreen>
-    <mat-sidenav #sidenav mode="side"> <!-- Coloco esta referencia local -->
 
+
+<mat-sidenav-container fullscreen>
+    
+    <mat-sidenav #sidenav mode="push"> <!-- Coloco esta referencia local -->
+        
         <mat-toolbar color="primary">
             <span>Menú</span>
             <span class="spacer"></span>
             <button mat-icon-button
-                    (click)="sidenav.toggle()"> <!-- Cuando hacemos click en el boton, buscaremos la referencia local y accedemos a un metodo propio de material llamado toggle, para que cuando alguien haga click en este boton se muestre o no esa referencia  -->
-                <mat-icon class="material-icons">menu</mat-icon> <!-- menu es el codigo del icono para menu hamburguesa -->
+                    (click)="sidenav.toggle()"> <!-- Cuando hacemos click en el boton, buscaremos la referencia local y accedemos a un metodo propio del material llamado toggle, para que cuando alguien haga click en este boton, se muestre o no esa referencia -->
+                <mat-icon>menu</mat-icon> <!-- menu es el codigo del icono para menu hamburguesa -->
             </button>
+            
         </mat-toolbar>
 
         <mat-nav-list>
             <a routerLink="./listado"
-                mat-list-item
-                (click)="sidenav.toggle()"> <!-- ./ porque ya me encuentro en la ruta de heroes -->
+               mat-list-item
+               (click)="sidenav.toggle()"> <!-- ./ porque ya me encuentro en la ruta de heroes -->
                 <mat-icon mat-list-icon>label</mat-icon>
                 <span>Listado de Héroes</span>
             </a>
+
             <a routerLink="./agregar"
-                mat-list-item
-                (click)="sidenav.toggle()"> <!-- ./ porque ya me encuentro en la ruta de heroes -->
+               mat-list-item
+               (click)="sidenav.toggle()"> 
                 <mat-icon mat-list-icon>add</mat-icon>
                 <span>Añadir Héroe</span>
             </a>
-            <a routerLink="./buscar"
-                mat-list-item
-                (click)="sidenav.toggle()"> <!-- ./ porque ya me encuentro en la ruta de heroes -->
-                <mat-icon mat-list-icon>search</mat-icon>
-                <span>Buscar Héroe</span>
-            </a>
-        </mat-nav-list>
 
+            <a routerLink="./buscar"
+               mat-list-item
+               (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Búscar Héroe</span>
+            </a>
+            
+        </mat-nav-list>
+        
     </mat-sidenav>
 
     <mat-toolbar>
         <button mat-icon-button
-                (click)="sidenav.toggle()"> <!-- Cuando hacemos click en el boton, buscaremos la referencia local y accedemos a un metodo propio de material llamado toggle, para que cuando alguien haga click en este boton se muestre o no esa referencia  -->
-            <mat-icon class="material-icons">menu</mat-icon> <!-- menu es el codigo del icono para menu hamburguesa -->
+                (click)="sidenav.toggle()"> <!-- Cuando hacemos click en el boton, buscaremos la referencia local y accedemos a un metodo propio de material llamado toggle, para que cuando alguien haga click en este boton se muestre o no esa referencia -->
+            <mat-icon>menu</mat-icon>
         </button>
 
         <span class="spacer"></span>
@@ -46,9 +53,9 @@
         </button>
     </mat-toolbar>
 
+
     <div class="container">
         <router-outlet></router-outlet>
     </div>
-
 
 </mat-sidenav-container>

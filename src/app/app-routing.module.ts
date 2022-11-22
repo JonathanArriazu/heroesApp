@@ -1,27 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 const routes: Routes = [
   {
-    path: "auth",
-    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   {
     path: 'heroes',
-    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule)
+    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule )
   },
   {
-    path: "404",
+    path: '404',
     component: ErrorPageComponent
   },
   {
-    path: "**",
-    /* component: ErrorPageComponent */ //Podria poner
-    //que mande a la pagina de error o que redirija a path 404
-    redirectTo: "404"
+    path: '**',
+    // component: ErrorPageComponent
+    redirectTo: '404'
   }
 ]
+
 
 @NgModule({
   imports: [

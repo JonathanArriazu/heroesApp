@@ -1,14 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Heroe } from '../../interfaces/heroes.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-buscar',
-  templateUrl: './buscar.component.html'
+  templateUrl: './buscar.component.html',
+  styles: [
+  ]
 })
 export class BuscarComponent implements OnInit {
 
-  constructor() { }
+  termino: string  = '';
+  heroes: Heroe[] = [];
+  heroeSeleccionado: Heroe | undefined;
+
+  constructor( private heroesService: HeroesService ) { }
 
   ngOnInit(): void {
+  }
+
+
+  buscando() {
+
+    this.heroesService.getSugerencias( this.termino.trim() )
+      .subscribe( heroes => this.heroes = heroes );
+
+  }
+
+  opcionSeleccionada ( event: MatAutocompleteSelectedEvent ) {
+    const heroe : Heroe = event.option.value;
+    this.termino = heroe.superhero;
+
+    this.heroesService.getHeroePorId( heroe.id! ) //El id pudiera venir como undefined, ya que el heroe demora un poco en llegar. Entonces le colocamos ! para decirle que confie en nosotros, que si existe un id 
+      .subscribe( heroe => this.heroeSeleccionado = heroe );
   }
 
 }

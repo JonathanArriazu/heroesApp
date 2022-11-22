@@ -1,21 +1,18 @@
 <h1>Listado de Héroes</h1>
 <mat-divider></mat-divider>
-
 <br>
 
 <div fxLayout="row wrap"
      fxLayout.xs="column"
      fxLayoutAlign="center"
-     fxLayoutGap="20px"
->   <!-- Cuando la pantalla es xs, en lugar de acomodar como row, acomodo como col -->
-
-<div fxFlex="20"
+     fxLayoutGap="20px">
+<!-- Cuando la pantalla es xs, en lugar de acomodar como row, acomodo como col -->
+    <div fxFlex="20"
          fxFlex.lg="15"
          fxFlex.sm="30"
-        *ngFor="let heroe of heroes"> 
-
-    <app-heroe-tarjeta [heroe]="heroe"></app-heroe-tarjeta>
-
+         *ngFor="let heroe of heroes"> <!-- Cada card ocupa un 20% del ancho del row, y para que no sobre un espacio. Pero si la pantalla es lg, que tome 15% y cuando sea sm que entonces ocupen un 30% -->
+       
+        <app-heroe-tarjeta [heroe]="heroe"></app-heroe-tarjeta>
+    </div>
 </div>
 
-</div>
