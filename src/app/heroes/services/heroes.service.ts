@@ -34,4 +34,8 @@ export class HeroesService {
     return this.http.put<Heroe>(`${ this.baseUrl }/heroes/${ heroe.id }`, heroe )
   }
 
+  borrarHeroe( id: string ):Observable<{}> { //Regresa un objeto vacio, por eso es que colocamos <{}> en lugar de <Heroe>
+    return this.http.delete<Heroe>(`${ this.baseUrl }/heroes/${ id }`)
+  }
+
 }

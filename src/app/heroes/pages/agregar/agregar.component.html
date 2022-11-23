@@ -74,7 +74,13 @@
         
         <span class="spacer"></span>
 
-
+        <button *ngIf="heroe.id" 
+                mat-raised-button
+                (click)="borrarHeroe()"
+                color="warn" > <!-- Si existe heroe.id, entonces se muestra el boton -->
+            <mat-icon>remove</mat-icon>
+            Borrar
+        </button>
 
         </div>
 
