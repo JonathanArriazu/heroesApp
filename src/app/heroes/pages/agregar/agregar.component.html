@@ -63,17 +63,25 @@
 
         <br>
 
+        <div fxLayout>
+
         <button mat-raised-button 
-                color="warn"
+                color="primary"
                 (click)="guardar()">
             <mat-icon>edit</mat-icon>
             Guardar
         </button>
+        
+        <span class="spacer"></span>
+
+
+
+        </div>
 
     </div>
 
     <div fxFlex="50">
-        <img src="heroe | image" alt=""> <!-- Este pipe ya lo creamos pero tenemos que modificarlo para que acepte una imagen por default cuando no tengamos ninguna imagen cargada -->
+        <img [src]="heroe | imagen" alt=""> <!-- Este pipe ya lo creamos pero tenemos que modificarlo para que acepte una imagen por default cuando no tengamos ninguna imagen cargada -->
     </div>
 
 </div>
