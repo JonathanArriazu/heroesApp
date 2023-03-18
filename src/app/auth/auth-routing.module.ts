@@ -8,11 +8,11 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'login',
+        path: 'login',  //localhost:4200/auth/login
         component: LoginComponent
       },
       {
-        path: 'registro',
+        path: 'registro', //localhost:4200/auth/registro
         component: RegistroComponent
       },
       {

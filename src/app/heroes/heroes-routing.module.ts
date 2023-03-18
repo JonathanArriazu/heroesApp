@@ -12,11 +12,11 @@ const rutas: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'listado', component: ListadoComponent },
-      { path: 'agregar', component: AgregarComponent },
-      { path: 'editar/:id', component: AgregarComponent },
-      { path: 'buscar', component: BuscarComponent },
-      { path: ':id', component: HeroeComponent },
+      { path: 'listado', component: ListadoComponent }, ///localhost:4200/heroes/listado
+      { path: 'agregar', component: AgregarComponent }, ///localhost:4200/heroes/agregar
+      { path: 'editar/:id', component: AgregarComponent }, ///localhost:4200/heroes/editar/id
+      { path: 'buscar', component: BuscarComponent }, ///localhost:4200/heroes/buscar
+      { path: ':id', component: HeroeComponent }, ///localhost:4200/heroes/id
       { path: '**', redirectTo: 'listado' }
     ]
   }
